@@ -23,11 +23,11 @@ const Filters = ({characters, setFilteredCharacters}) => {
     return (
         <article>
             <section className='culture-wrap'>
-                <label for='culture'>Culture</label>
+                <label htmlFor='culture'>Culture</label>
                 <input id='culture' type="text" value={culture} onChange={handleCultureChange}/>
             </section>
             <section className='gender-wrap'>
-                <label for='select-gender'>Gender</label>
+                <label htmlFor='select-gender'>Gender</label>
                 <select id='select-gender' value={gender} onChange={handleGenderChange}>
                     <option value="Any">Any</option>
                     <option value="Male">Male</option>
