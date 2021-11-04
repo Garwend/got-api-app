@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table > thead > tr {
+    background-color: royalblue;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+}
+
+table > tbody {
+    background-color: #f6f6f6;
+}
+
+table th,
+table td { 
+    padding: 12px;
+}

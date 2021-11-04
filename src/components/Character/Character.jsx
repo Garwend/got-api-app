@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Character = ({character, alive, gender, culture, allegiances}) => {
     return (
@@ -6,7 +7,11 @@ const Character = ({character, alive, gender, culture, allegiances}) => {
             <td>{alive}</td>
             <td>{gender}</td>
             <td>{culture}</td>
-            <td>{allegiances}</td>
+            <td>
+            {Array.isArray(allegiances) ? 
+            allegiances.map(allegiance => <Link style={{marginRight:'8px'}} key={allegiance} to={`houses/${allegiance}`}>{allegiance}</Link>)
+            : allegiances}
+            </td>
         </tr>
     )
 }

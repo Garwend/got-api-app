@@ -1,0 +1,19 @@
+.house-page {
+    width: 80vw;
+    margin: 50px auto;
+}
+
+.house-page header{
+    position: relative;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.house-page header .material-icons{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 28px;
+    color: black;
+}

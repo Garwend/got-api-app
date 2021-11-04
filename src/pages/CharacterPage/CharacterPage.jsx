@@ -64,11 +64,10 @@ const CharacterPage = () => {
                     alive,
                     gender: item.gender,
                     culture: item.culture !== '' ? item.culture : 'Unknown',
-                    allegiances: item.allegiances.length > 0 ? item.allegiances.join(' ') : 'No allegiances', 
+                    allegiances: item.allegiances.length > 0 ? item.allegiances.map(allegiance => allegiance.replace('https://www.anapioficeandfire.com/api/houses/','')) : 'No allegiances', 
                 }
             })
             setFilteredCharacters(null);
-            console.log(result)
             setCharacters(newResult);
             
             },
