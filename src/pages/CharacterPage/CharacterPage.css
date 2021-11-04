@@ -3,6 +3,13 @@
     margin: 50px auto;
 }
 
+.change-page-filters-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 .characters-table {
     width: 100%;
     border-collapse: collapse;

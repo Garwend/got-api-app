@@ -2,14 +2,17 @@ import { useEffect, useState } from 'react';
 
 import ChangePage from '../../components/ChangePage/ChangePage';
 import Character from '../../components/Character/Character';
+import Filters from '../../components/Filters/Filters';
 
 import './CharacterPage.css'
 
 const CharacterPage = () => {
     const [pageNumber, setPageNumber] = useState(1)
     const [pageSize, setPageSize] = useState(25)
-    const [characters, setCharacter] = useState([]);
     const [pages, setPages] = useState({})
+    const [characters, setCharacters] = useState([]);
+    const [filteredCharacters, setFilteredCharacters] = useState(null)
+    
     
     useEffect(() => {
         fetch(`https://www.anapioficeandfire.com/api/characters?page=${pageNumber}&pageSize=${pageSize}`, {
@@ -64,8 +67,9 @@ const CharacterPage = () => {
                     allegiances: item.allegiances.length > 0 ? item.allegiances.join(' ') : 'No allegiances', 
                 }
             })
+            setFilteredCharacters(null);
             console.log(result)
-            setCharacter(newResult);
+            setCharacters(newResult);
             
             },
             (error) => {
@@ -76,7 +80,8 @@ const CharacterPage = () => {
 
     return (
         <main className='characters-page'>
-            <section >
+            <section className='change-page-filters-wrap'>
+                <Filters characters={characters} setFilteredCharacters={setFilteredCharacters}/>
                 <ChangePage pageNumber={pageNumber} pageSize={pageSize} setPageNumber={setPageNumber} setPageSize={setPageSize} {...pages}/>
             </section>
             <table className='characters-table'>
@@ -90,7 +95,9 @@ const CharacterPage = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {characters.map(character => <Character key={character.url} {...character}/>)}
+                    {filteredCharacters !== null ? 
+                    filteredCharacters.map(character => <Character key={character.url} {...character}/>)
+                    : characters.map(character => <Character key={character.url} {...character}/>)}
                 </tbody>
             </table>
         </main>

@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin-bottom: 20px;
 }
 
 .change-page-wrap p>span {

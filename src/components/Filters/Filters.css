@@ -1,0 +1,43 @@
+.gender-wrap {
+    margin-top: 10px;
+}
+
+.gender-wrap,
+.culture-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.gender-wrap select, 
+.culture-wrap input {
+    padding: 8px;
+    border: 1px solid #d4d4d4;
+    margin-top: 5px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    outline-color: royalblue;
+}
+
+.button-wrap {
+    margin-top: 10px;
+}
+
+.button-wrap button{
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    background-color: royalblue;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.button-wrap button:hover {
+    background-color: rgb(56, 91, 194);
+}
