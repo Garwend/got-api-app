@@ -49,13 +49,28 @@ const CharacterPage = () => {
                 let alive;
 
                 if (item.born === '' && item.died === '') {
-                    alive = 'Unknown'
+                    alive = 'Unknown';
                 } else if (item.born !== '' && item.died !== '') {
-                    alive = `No, died at`
+                    const born = item.born.match(/[0-9]+/g,'')
+                    const died = item.died.match(/[0-9]+/g,'')
+
+                    if (born === null || died === null) {
+                        alive = 'No';
+                    }else {
+                        const bAge = Math.round(born.reduce(function(a,b){
+                            return Number(a) + Number(b)
+                        },0) / born.length)
+                        
+                        const dAge = Math.round(died.reduce(function(a,b){
+                            return Number(a) + Number(b)
+                        },0) / died.length)
+
+                        alive = `No, died at ${dAge - bAge} years old`;
+                    }                
                 } else if (item.born === '') {
-                    alive = 'No'
+                    alive = 'No';
                 } else {
-                    alive = 'Yes'
+                    alive = 'Yes';
                 }
                 
                 return {
