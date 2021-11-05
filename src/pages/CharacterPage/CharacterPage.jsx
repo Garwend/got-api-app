@@ -57,15 +57,15 @@ const CharacterPage = () => {
                     if (born === null || died === null) {
                         alive = 'No';
                     }else {
-                        const bAge = Math.round(born.reduce(function(a,b){
+                        const bYear = Math.round(born.reduce(function(a,b){
                             return Number(a) + Number(b)
                         },0) / born.length)
                         
-                        const dAge = Math.round(died.reduce(function(a,b){
+                        const dYear = Math.round(died.reduce(function(a,b){
                             return Number(a) + Number(b)
                         },0) / died.length)
 
-                        alive = `No, died at ${dAge - bAge} years old`;
+                        alive = `No, died at ${dYear - bYear} years old`;
                     }                
                 } else if (item.born === '') {
                     alive = 'No';
